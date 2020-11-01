@@ -4,7 +4,7 @@ const Books = require('../models/books');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  Books.find().exec(function(err, books) {
+  Books.find({}, function(err, books) {
     if (!err) {
       res.render('index', { title: 'Book App', bookList: books });
     } else {
