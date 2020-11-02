@@ -25,4 +25,10 @@ router.get('/edit/:id', function (req, res) {
         book
     });
 });
+
+router.post('/saveEdited/:id', function (req, res) {
+    const index = books.findIndex((book) => { return book._id === req.params.id });
+    books.splice(index, 1, req.body);
+    res.redirect('/');
+});
 module.exports = router;
