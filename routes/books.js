@@ -28,7 +28,7 @@ router.get('/edit/:id', function (req, res) {
 
 router.post('/saveEdited/:id', function (req, res) {
     const index = books.findIndex((book) => { return book._id === req.params.id });
-    books.splice(index, 1, req.body);
+    books.splice(index, 1, { ...req.body, _id: index });
     res.redirect('/');
 });
 module.exports = router;
